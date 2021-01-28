@@ -31,11 +31,14 @@ function writeToLog(
 }
 
 function calculateResult(calculationType) {
+    const enteredNumber = getUserInput();
     if (
         calculationType !== 'ADD' &&
         calculationType !== 'SUBTRACT' &&
         calculationType !== 'MULTIPLY' &&
-        calculationType !== 'DIVIDE'
+        calculationType !== 'DIVIDE' ||
+        !enteredNumber // this means if NOT enteredNumber..
+        // i.e. if enteredNumber = 0/false
     ) {
         return;
     }
@@ -52,7 +55,7 @@ function calculateResult(calculationType) {
         // if using the first method of doing this
         // then this code would not need to be inside
         // curly braces
-        const enteredNumber = getUserInput();
+
         const initialResult = currentResult;
         let mathOperator;
 
