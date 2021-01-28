@@ -39,27 +39,47 @@ function calculateResult(calculationType) {
     ) {
         return;
     }
+    // This is ONE WAY of ensuring that the code
+    //will only run if all of these conditions
+    //are met! Another way is below!
 
-    const enteredNumber = getUserInput();
-    const initialResult = currentResult;
-    let mathOperator;
+    // if (
+    //     calculationType === 'ADD' ||
+    //     calculationType === 'SUBTRACT' ||
+    //     calculationType === 'MULTIPLY' ||
+    //     calculationType === 'DIVIDE'
+    // ) {
+        // if using the first method of doing this
+        // then this code would not need to be inside
+        // curly braces
+        const enteredNumber = getUserInput();
+        const initialResult = currentResult;
+        let mathOperator;
 
-    if (calculationType === 'ADD') {
-        currentResult += enteredNumber;
-        mathOperator = '+';
-    } else if (calculationType === 'SUBTRACT') {
-        currentResult -= enteredNumber;
-        mathOperator = '-';
-    } else if (calculationType === 'MULTIPLY') {
-        currentResult *= enteredNumber;
-        mathOperator = '*';
-    } else if (calculationType === 'DIVIDE') {
-        currentResult /= enteredNumber;
-        mathOperator = '/';
-    }
+        if (calculationType === 'ADD') {
+            currentResult += enteredNumber;
+            mathOperator = '+';
+        } else if (calculationType === 'SUBTRACT') {
+            currentResult -= enteredNumber;
+            mathOperator = '-';
+        } else if (calculationType === 'MULTIPLY') {
+            currentResult *= enteredNumber;
+            mathOperator = '*';
+        } else if (calculationType === 'DIVIDE') {
+            currentResult /= enteredNumber;
+            mathOperator = '/';
+        }
 
-    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
-    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
+        createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+        writeToLog(
+            calculationType,
+            initialResult,
+            enteredNumber,
+            currentResult
+        );
+    // }
+    // this was removed as it is a part of the
+    // 2nd example of how to achieve this!
 }
 
 function add() {
